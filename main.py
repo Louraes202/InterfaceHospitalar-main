@@ -10,9 +10,10 @@ from layouts import *
 caminho = os.getcwd()
 print(caminho)
 print("-------------------------------")
-f = open("DB/utentes.txt", "r", encoding="UTF-8")
-utentes = f.read().splitlines()
-
+futentes = open("DB/utentes.txt", "r", encoding="UTF-8")
+flogin = open("DB/login.txt", "r", encoding="UTF-8")
+utentes = futentes.read().splitlines()
+login = flogin.read().splitlines()
 
 ## ---- Body ----
 # sg.popup_notify("Projeto Final de PSI - MOD7 Ficheiros", display_duration_in_ms=500)
@@ -20,7 +21,7 @@ window = sg.Window("IH - Menu", menu(), icon=logo) # definição dos elementos d
 running = True
 r_entrar, r_ajuda, r_interface = False, False, False
 utentesdict = {}
-utentes = []
+utenteslist = []
 # atualjanela = "menu"
 while running == True: # loop da verificação e atualizaçáo de valores e eventos na janela
     print("-- REFRESH --")
@@ -40,10 +41,17 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 w_entrar.close()
 
             if event == "Login":
-                username = values["UsernameValue"]
-                password = values["PasswordValue"]
+                username = values["UsernameValue"].strip()
+                password = values["PasswordValue"].strip()
                 utilizador = username + " | " + password
                 print(utilizador)
+                if utilizador not in login:
+                    sg.Popup("Utilizador ou password incorretos!", title="ERRO!", icon=logo)
+                else:
+                    sg.Popup("Logou com sucesso!\nAo fechar esta janela será redirecionado para a interface.", title="Login", icon=logo)
+                    w_entrar.close()
+                    event = "Interface"
+                    break
                 # w_entrar.close()
 
     if event == "Ajuda":
@@ -113,4 +121,5 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
 
 
 
-f.close()
+utentes.close()
+login.close()

@@ -16,7 +16,8 @@ def entrar(): # l_entrar
     return [ 
         [sg.Text("Username:"), sg.Input("", key="UsernameValue", expand_x=True)],
         [sg.Text("Password:"), sg.Input("", key="PasswordValue", expand_x=True, password_char="⚫")],
-        [sg.Button("Login"), sg.Button("Voltar")]
+        [sg.Button("Login"), sg.Button("Voltar")],
+        [sg.Text("Atenção: Qualquer espaço antes e depois do Username e da Password será eliminado.")]
     ] 
 
 def ajuda(): #l_ajuda
