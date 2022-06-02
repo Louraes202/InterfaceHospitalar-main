@@ -21,10 +21,13 @@ running = True
 tabela = {}
 # atualjanela = "menu"
 while running == True: # loop da verificação e atualizaçáo de valores e eventos na janela
+    print("-- REFRESH --")
     atualjanela = "menu"
     event, values = window.read()
+    print("Evento: {}, Valores: {}".format(event, values))
     if event == sg.WIN_CLOSED or event == "Sair" and atualjanela == "menu":
         running = False
+        
     if event == "Entrar":
         atualjanela = "entrar"
         w_entrar = sg.Window("Entrar", entrar(), icon=logo)
@@ -57,19 +60,20 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
         event, values = w_interface.read()
 
         if event == sg.WIN_CLOSED or event == "Voltar" and atualjanela == "Interface":
+            print(event, values)
             atualjanela = "menu"
             print(atualjanela)
             w_interface.close()
         
 
         if event == "Colocar Utente":
+            print(event, values)
             atualjanela = "Colocar Utente"
             w_colocarutente = sg.Window("Colocar Utente", colocarutente(), icon=logo)
             event, values = w_colocarutente.read()
 
             if event == sg.WIN_CLOSED and atualjanela == "Colocar Utente":
                 atualjanela = "Interface"
-                print(atualjanela)
                 w_colocarutente.close()
                 print(event)
             
@@ -80,9 +84,13 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 print(tabela)
                 atualjanela = "Interface"
                 w_colocarutente.close()
+                w_interface.close()
+                w_interface = sg.Window("Interface", interface(), icon=logo)
+                event, values = w_interface.read()
 
-        # if event == "Chamar Utente":
-            # abrir janela de chamar utente
+        if event == "Chamar Utente":
+            print(event, values)
+            continue
 
 
 f.close()
