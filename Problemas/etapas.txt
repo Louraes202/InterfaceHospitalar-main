@@ -1,0 +1,4 @@
+O programa de Interface Hospitalar com GUI disponível graças à libraria PySimpleGUI é exequível, porém, falta aplicar os conceitos de:
+     Utilização de um ficheiro de Texto,
+     Utilização de coleções (dicionário, lista).
+Deixo aqui a nota para não me esquecer de adaptar o programa ao contexto do desafio.

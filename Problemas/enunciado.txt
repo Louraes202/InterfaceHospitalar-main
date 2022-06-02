@@ -1,0 +1,20 @@
+-- 2.ª Parte --
+Pretende‐se desenvolver um programa que, através da utilização de ficheiros, permita fazer o CRUD de um Sistema de Informação simples, baseado numa estrutura de dados adequada 
+a uma situação de contexto real. A estrutura de dados deve ser representada por coleções que sejam armazenadas nos ficheiros. O programa deve ter um menu com todas as 
+opções disponíveis. Deve permitir atualizar os dados, inserindo novos valores no ficheiro ou alterando os que já lá se encontram. Para além disso deve permitir remover 
+elementos para fazer o CRUD da informação. Deve listar os dados armazenados mostrando todos os dados e permitir fazer algumas consultas.
+
+Fatores obrigatórios
+     Utilização de um ficheiro de Texto
+     Utilização de coleções (dicionário, lista)
+     Manipulação dos ficheiros com:
+        ‐ Abertura no modo escrita/append
+        ‐ Abertura no modo leitura
+
+Fatores valorativos
+     Utilização de outras coleções (set, tupla)
+     Validação de dados
+     Pesquisa avançada  
+     Depuração do código com utilização de comentários
+     Utilização de funções para organização do código  
+     Apresentação e interface amigável

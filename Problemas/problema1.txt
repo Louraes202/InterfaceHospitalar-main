@@ -1,0 +1,3 @@
+--- Problema 1
+É preciso fazer um while True para todas as janelas apra as quais queremos ter uma leitura constante de valores.
+-- Resolvido!

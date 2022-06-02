@@ -36,9 +36,16 @@ def interface(): # l_interface
 pulseiras = ("Verde", "Amarela", "Vermelha")
 def colocarutente():
     return [
-        [sg.Text("N.ºUtente"), sg.Input(key="nutente", expand_x=True)],
         [sg.Text("Nome"), sg.Input(key="utente", expand_x=True)],
-        [sg.Text("Pulseira"), sg.Combo(pulseiras, key="cpulseira", default_value="Verde", auto_size_text=True, change_submits=False)],
+        [sg.Text("N.ºUtente"), sg.Input(key="nutente", expand_x=True)],
         [sg.Text("Caso"), sg.Input(key="caso", expand_x=True)],
+        [sg.Text("Pulseira"), sg.Combo(pulseiras, key="cpulseira", default_value="Verde", auto_size_text=True, change_submits=False)],
         [sg.Button("Colocar")]
     ]
+
+""" def chamarutente():
+    return [
+        [sg.Text("Utente a chamar:")],
+        [sg.Button("Voltar")]
+    ]
+"""
