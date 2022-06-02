@@ -2,7 +2,7 @@
 import os
 import PySimpleGUI as sg
 ## ---- Funções ----
-# fazer função de fechar as janelas 
+from specialfunctions import *
 # basicamente ver onde o código é repetido e transformar as repetições em funcções
 ## ---- Layouts e assets ----
 from layouts import *
@@ -42,7 +42,7 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
             if event == "Login":
                 username = values["UsernameValue"]
                 password = values["PasswordValue"]
-                utilizador = username + " " + password
+                utilizador = username + " | " + password
                 print(utilizador)
                 # w_entrar.close()
 
@@ -51,10 +51,12 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
         w_ajuda = sg.Window("Ajuda", ajuda(), icon=logo)
         while atualjanela == "Ajuda":
             event, values = w_ajuda.read()
-
-            if event == sg.WIN_CLOSED or event == "Voltar" and atualjanela == "entrar":
+            if event == sg.WIN_CLOSED or event == "Voltar" and atualjanela == "entrar": # closewindow(w_ajuda, entrar, menu)
                 atualjanela = "menu"
                 w_ajuda.close()
+            
+            # closewindow(w_ajuda, entrar, menu, event)
+            # break
 
 
     if event == "Interface": #_# mudar shortcut para nova janela constante (que fecha o menu)
@@ -99,8 +101,15 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
 
 
             if event == "Chamar Utente":
-                utenteselecionado = int(values[0])
-                print(utenteselecionado)
+                selecionado = values[0]
+                if len(selecionado) != 0:
+                    posutente = selecionado[0]
+                    sg.Popup("O utente {} acaba de ser chamado!".format(valorestable[posutente][3]), title="Chamar utente", icon=logo)
+                    valorestable.pop(posutente)
+                    w_interface.close()
+                    w_interface = sg.Window("Interface", interface(), icon=logo)
+                else:
+                    sg.Popup("Não selecionou nenhum utente!", title="ERRO!", icon=logo)
 
 
 
