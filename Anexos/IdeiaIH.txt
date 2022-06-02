@@ -1,0 +1,8 @@
+<-- Ideia Interface Hospital -->
+O contexto do meu projeto final do módulo 7 é 
+desenvolver uma aplicação para gerir os utentes de um determinado hospital.
+
+Botoes Iniciais:
+Entrar - Redirect para Janela para o login ser feito
+Ajuda - Redirect para Janela para documentação do programa
+Sair - Botão de saída

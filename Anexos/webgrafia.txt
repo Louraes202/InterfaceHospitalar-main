@@ -1,0 +1,10 @@
+Python External References:
+https://stackoverflow.com/questions/15233340/getting-rid-of-n-when-using-readlines
+https://stackoverflow.com/questions/147741/character-reading-from-file-in-python
+https://stackoverflow.com/questions/17255737/importing-variables-from-another-file
+https://python-forum.io/thread-12970.html   
+
+PySimpleGUI References:
+https://pysimplegui.readthedocs.io/en/latest/#all-elements
+https://pysimplegui.readthedocs.io/en/latest/#keyboard-mouse-capture
+https://pysimplegui.readthedocs.io/en/latest/#common-element-parameters
