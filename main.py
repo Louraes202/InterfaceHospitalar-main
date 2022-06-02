@@ -27,7 +27,7 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
     print("Evento: {}, Valores: {}".format(event, values))
     if event == sg.WIN_CLOSED or event == "Sair" and atualjanela == "menu":
         running = False
-        
+
     if event == "Entrar":
         atualjanela = "entrar"
         w_entrar = sg.Window("Entrar", entrar(), icon=logo)
@@ -58,16 +58,16 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
         atualjanela = "Interface"
         w_interface = sg.Window("Interface", interface(), icon=logo)
         event, values = w_interface.read()
+        print(event, "Interface")
 
         if event == sg.WIN_CLOSED or event == "Voltar" and atualjanela == "Interface":
-            print(event, values)
+            print(event)
             atualjanela = "menu"
-            print(atualjanela)
             w_interface.close()
         
 
         if event == "Colocar Utente":
-            print(event, values)
+            print(event)
             atualjanela = "Colocar Utente"
             w_colocarutente = sg.Window("Colocar Utente", colocarutente(), icon=logo)
             event, values = w_colocarutente.read()
@@ -85,11 +85,10 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 atualjanela = "Interface"
                 w_colocarutente.close()
                 w_interface.close()
-                w_interface = sg.Window("Interface", interface(), icon=logo)
-                event, values = w_interface.read()
+                event = "Interface"
 
         if event == "Chamar Utente":
-            print(event, values)
+            print(event)
             continue
 
 

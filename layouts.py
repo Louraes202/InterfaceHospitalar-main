@@ -33,7 +33,7 @@ def interface(): # l_interface
         [sg.Button("Colocar Utente"), sg.Button("Chamar Utente"), sg.Button("Voltar")]
     ]
 
-pulseiras = ["Verde", "Amarela", "Vermelha"]
+pulseiras = ("Verde", "Amarela", "Vermelha")
 def colocarutente():
     return [
         [sg.Text("N.ºUtente"), sg.Input(key="nutente", expand_x=True)],
