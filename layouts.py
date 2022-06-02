@@ -29,7 +29,7 @@ valorestable = []
 def interface(): # l_interface
     return [
         [sg.Text("Interface Principal", font=("Comic 16 bold"))],
-        [sg.Table(valorestable, ["N.ºUtente", "Utente", "Nome", "Pulseira", "Caso"], expand_x=True, expand_y=True, auto_size_columns=True)],
+        [sg.Table(valorestable, ["N.ºUtente", "Utente", "Pulseira", "Caso"], expand_x=True, expand_y=True, auto_size_columns=True)],
         [sg.Button("Colocar Utente"), sg.Button("Chamar Utente"), sg.Button("Voltar")]
     ]
 
@@ -38,7 +38,7 @@ def colocarutente():
     return [
         [sg.Text("N.ºUtente"), sg.Input(key="nutente", expand_x=True)],
         [sg.Text("Nome"), sg.Input(key="utente", expand_x=True)],
-        [sg.Text("Pulseira"), sg.Combo(pulseiras, key="cpulseira", default_value="Verde", auto_size_text=True, change_submits=False, expand_x=True)],
+        [sg.Text("Pulseira"), sg.Combo(pulseiras, key="cpulseira", default_value="Verde", auto_size_text=True, change_submits=False)],
         [sg.Text("Caso"), sg.Input(key="caso", expand_x=True)],
         [sg.Button("Colocar")]
     ]

@@ -82,9 +82,10 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                         try: # verificação do nutente
                             nutente = int(nutente)
                             nomeutente = str(nomeutente)
-                            if len(nomeutente) != 0:
+                            if len(nomeutente) != 0 and cpulseira in pulseiras:
                                 valorestable.append([nutente, nomeutente, cpulseira, caso])
                                 tabela[nutente] = {"nomeutente": nomeutente, "cordapulseira": cpulseira, "caso": caso}
+                                print(tabela)
                                 atualjanela = "Interface"
                                 w_colocarutente.close()
                                 w_interface.close()
@@ -97,7 +98,7 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
 
 
             if event == "Chamar Utente":
-                print(event)
+                print(event, values)
 
 
 f.close()
