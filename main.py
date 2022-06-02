@@ -16,7 +16,7 @@ utentes = futentes.read().splitlines()
 login = flogin.read().splitlines()
 
 ## ---- Body ----
-# sg.popup_notify("Projeto Final de PSI - MOD7 Ficheiros", display_duration_in_ms=500)
+sg.popup_notify("Projeto Final de PSI - MOD7 Ficheiros", display_duration_in_ms=500)
 window = sg.Window("IH - Menu", menu(), icon=logo) # definição dos elementos da janela
 running = True
 r_entrar, r_ajuda, r_interface = False, False, False
@@ -112,7 +112,7 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 selecionado = values[0]
                 if len(selecionado) != 0:
                     posutente = selecionado[0]
-                    sg.Popup("O utente {} acaba de ser chamado!".format(valorestable[posutente][3]), title="Chamar utente", icon=logo)
+                    sg.Popup("O utente {} acaba de ser chamado!".format(valorestable[posutente][1]), title="Chamar utente", icon=logo)
                     valorestable.pop(posutente)
                     w_interface.close()
                     w_interface = sg.Window("Interface", interface(), icon=logo)
