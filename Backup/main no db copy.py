@@ -7,7 +7,6 @@ from specialfunctions import *
 ## ---- Layouts e assets ----
 from layouts import *
 ## ---- Var ----
-from read import *
 caminho = os.getcwd()
 print(caminho)
 print("-------------------------------")
@@ -15,9 +14,9 @@ futentes = open("DB/utentes.txt", "r", encoding="UTF-8")
 flogin = open("DB/login.txt", "r", encoding="UTF-8")
 utentes = futentes.read().splitlines()
 login = flogin.read().splitlines()
-islogged = False
+
 ## ---- Body ----
-# sg.popup_notify("Projeto Final de PSI - MOD7 Ficheiros", display_duration_in_ms=500)
+sg.popup_notify("Projeto Final de PSI - MOD7 Ficheiros", display_duration_in_ms=500)
 window = sg.Window("IH - Menu", menu(), icon=logo) # definição dos elementos da janela
 running = True
 r_entrar, r_ajuda, r_interface = False, False, False
@@ -49,13 +48,9 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 if utilizador not in login:
                     sg.Popup("Utilizador ou password incorretos!", title="ERRO!", icon=logo)
                 else:
-                    sg.Popup("Logou com sucesso!\nAo fechar esta janela será redirecionado para o menu.", title="Login", icon=logo)
+                    sg.Popup("Logou com sucesso!\nAo fechar esta janela será redirecionado para a interface.", title="Login", icon=logo)
                     w_entrar.close()
-                    # event = "Interface"
-                    window["Sair"].update(visible=False)
-                    window["Interface"].update(visible=True)
-                    window["Sair"].update(visible=True)
-                    islogged = True
+                    event = "Interface"
                     break
                 # w_entrar.close()
 
@@ -100,7 +95,6 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                             nomeutente = str(nomeutente)
                             if len(nomeutente) != 0 and cpulseira in pulseiras:
                                 valorestable.append([nutente, nomeutente, cpulseira, caso])
-                                print(valorestable)
                                 utentesdict[nutente] = {"nomeutente": nomeutente, "cordapulseira": cpulseira, "caso": caso}
                                 print(utentesdict)
                                 atualjanela = "Interface"
@@ -125,20 +119,7 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 else:
                     sg.Popup("Não selecionou nenhum utente!", title="ERRO!", icon=logo)
 
-futentes.close()
-flogin.close()
 
-# Salvar os dados quando o programa termina
 
-f = open("DB/table.txt", "w", encoding="UTF-8")
-print(valorestable)
-for linha in valorestable:
-    for elemento in linha: 
-        indexas = linha.index(elemento)
-        if indexas != 3:
-            f.write("{} | ".format(elemento))
-        else:
-            f.write(elemento)
-    f.write("\n")
-
-f.close()
+utentes.close()
+login.close()

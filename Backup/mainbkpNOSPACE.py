@@ -49,12 +49,12 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 if utilizador not in login:
                     sg.Popup("Utilizador ou password incorretos!", title="ERRO!", icon=logo)
                 else:
-                    sg.Popup("Logou com sucesso!\nAo fechar esta janela será redirecionado para o menu.", title="Login", icon=logo)
+                    sg.Popup("Logou com sucesso!\nAo fechar esta janela será redirecionado para a interface.", title="Login", icon=logo)
                     w_entrar.close()
                     # event = "Interface"
-                    window["Sair"].update(visible=False)
-                    window["Interface"].update(visible=True)
-                    window["Sair"].update(visible=True)
+                    window["btnSair"].update(visible=False)
+                    window["btnInterface"].update(visible=True)
+                    window["btnSair"].update(visible=True)
                     islogged = True
                     break
                 # w_entrar.close()

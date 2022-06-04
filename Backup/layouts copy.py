@@ -1,5 +1,4 @@
-import PySimpleGUI as sg
-from read import * 
+import PySimpleGUI as sg 
 sg.theme("DarkPurple1") # LightBlue
 logo = "Imagens/logo.ico"
 
@@ -8,7 +7,7 @@ def menu(): # l_menu
     return [ 
         [sg.Text("Interface Hospital", font=("Comic 16 bold"))],
         [sg.Image(source="Imagens/hospital.png", expand_x=True, expand_y=True)],
-        [sg.Button("Entrar"), sg.Button("Ajuda"), sg.Button("Interface", key="Interface", visible=False), sg.Button("Sair", key="Sair")]
+        [sg.Button("Entrar"), sg.Button("Ajuda"), sg.Button("Interface"), sg.Button("Sair")]
         ]
 
 ## variáveis 
@@ -27,7 +26,7 @@ def ajuda(): #l_ajuda
         [sg.Text("Como utilizar o programa?")]
     ]
 
-# valorestable = [] # utilizar uma database
+valorestable = [] # utilizar uma database
 def interface(): # l_interface
     return [
         [sg.Text("Interface Principal", font=("Comic 16 bold"))],
@@ -45,8 +44,9 @@ def colocarutente():
         [sg.Button("Colocar")]
     ]
 
-def fichadeutente():
+""" def chamarutente():
     return [
-        [sg.Text("Ficha de Utente", font=("Comic 16 bold"))]
+        [sg.Text("Utente a chamar:")],
+        [sg.Button("Voltar")]
     ]
-
+"""
