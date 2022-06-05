@@ -16,9 +16,10 @@ for linha in linhas2:
         indexas = linha.index(e)
         x = e.strip()
         linha[indexas] = x
-        
-print(linhas2)
-f.close()
 
 valorestable = linhas2
-print(valorestable)
+f.close()
+
+futentes = open("DB/utentes.txt", "r", encoding="UTF-8")
+utentes = futentes.read().splitlines()
+futentes.close()

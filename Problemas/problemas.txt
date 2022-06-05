@@ -4,4 +4,4 @@
 
 --- Problema 2
 É preciso ir buscar os dados a ficheiros em vez de criar estruturas vazias, para que na inicialização do programa possam ser retirados dados de uma utilização anterior.
-..
+.. Resolvido!

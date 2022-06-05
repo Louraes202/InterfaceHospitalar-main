@@ -1,14 +1,14 @@
 import PySimpleGUI as sg
 from read import * 
-sg.theme("DarkPurple1") # LightBlue
+# from main import utentes
 logo = "Imagens/logo.ico"
-
+loginbtnsstarting = False # p remover
 ## constantes
 def menu(): # l_menu
     return [ 
         [sg.Text("Interface Hospital", font=("Comic 16 bold"))],
         [sg.Image(source="Imagens/hospital.png", expand_x=True, expand_y=True)],
-        [sg.Button("Entrar"), sg.Button("Ajuda"), sg.Button("Interface", key="Interface", visible=False), sg.Button("Sair", key="Sair")]
+        [sg.Button("Entrar"), sg.Button("Ajuda"), sg.Button("Interface", key="Interface", visible=loginbtnsstarting), sg.Button("Tools", key="Tools", visible=loginbtnsstarting), sg.Button("Pesquisar Utentes", key="Pesquisar Utente", visible=loginbtnsstarting), sg.Button("Settings", key="Settings"), sg.Button("Sair", key="Sair")]
         ]
 
 ## variáveis 
@@ -45,8 +45,23 @@ def colocarutente():
         [sg.Button("Colocar")]
     ]
 
-def fichadeutente():
-    return [
-        [sg.Text("Ficha de Utente", font=("Comic 16 bold"))]
+def tools():
+    return [ 
+        [sg.Text("Tools", font=("Comic 16 bold"))]
     ]
 
+def pesquisarutente():
+    return [
+        [sg.Text("Ficha de Utente", font=("Comic 16 bold"))], 
+        [sg.Combo(key="utentes", values=utentes)],
+        [sg.Text("Nome:"), sg.Text(key="nomeutente")],
+        [sg.Text("Pulseira:"), sg.Text(key="cpulseira")],
+        [sg.Text("Caso:"), sg.Text(key="caso")],
+        [sg.Button("Pesquisar", key="Pesquisar"), sg.Button("Voltar")]
+    ]
+
+def settings():
+    return [
+        [sg.Text("Settings", font=("Comic 16 bold"))],
+        [sg.Text("Tema"), sg.Combo(sg.theme_list()), sg.Button("Mudar")]
+    ]

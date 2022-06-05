@@ -1,0 +1,3 @@
+- Colocar pesquisa de utentes e tools dentro da interface. ||
+- Fazer o tema mudar e registar a mudança em um ficheiro! ||
+- Adicionar logs em ficheiros txt (estatísticos e de uso geral da aplicação) ||

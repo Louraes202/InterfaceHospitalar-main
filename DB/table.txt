@@ -1,3 +1,5 @@
 21 | Martim | Amarelo | Braço Fraturado
 22 | António | Verde | Febre
 23 | Rubyzinha | Amarela | Ginecologista
+24 | Antonio | Verde | adwad
+28 | Paula | Amarela | Covid
