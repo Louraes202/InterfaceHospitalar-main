@@ -21,5 +21,5 @@ valorestable = linhas2
 f.close()
 
 futentes = open("DB/utentes.txt", "r", encoding="UTF-8")
-utentes = futentes.read().splitlines()
+utentes_read = futentes.read().splitlines()
 futentes.close()

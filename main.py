@@ -3,6 +3,33 @@ import os
 import PySimpleGUI as sg
 # import keyboard
 ## ---- Funções ----
+def updatetable():
+    f = open("DB/table.txt", "w", encoding="UTF-8")
+    for linha in valorestable:
+        for elemento in linha: 
+            indexas = linha.index(elemento)
+            if indexas != 3:
+                f.write("{} | ".format(elemento))
+            else:
+                f.write(elemento)
+        f.write("\n")
+
+    f.close()
+
+def addutente(utente):
+    utente = str(utente)
+    futensa = open("DB/utentes.txt", "a", encoding="UTF-8")
+    futensa.write(utente)
+    futensa.close()
+    utentes_read.append(utente)
+
+def removeutente(utente):
+    futentesa = open("DB/utentes.txt", "w", encoding="UTF-8")
+    for e in utentes:
+        futentesa.write(e)
+        futentesa.write("\n")
+    futentesa.close()
+    utentes_read.remove(utente)
 ## ---- Layouts e assets ----
 from layouts import *
 sg.theme("Dark Purple 1") # fazer o tema mudar e registar a mudança em um ficheiro!
@@ -18,12 +45,12 @@ islogged = False
 utentes = []
 utentesdict = {}
 # ---- Var From File ----
+updatetable()
+
 for e in valorestable:
     utentesdict[e[0]] = {"nomeutente": e[1], "cordapulseira": e[2], "caso": e[3]}
-print(utentesdict)
 for e in utentesdict:
     utentes.append(e)
-
 futentesa = open("DB/utentes.txt", "w", encoding="UTF-8")
 for e in utentes:
     futentesa.write(e)
@@ -39,6 +66,7 @@ running = True
 # atualjanela = "menu"
 while running == True: # loop da verificação e atualizaçáo de valores e eventos na janela
     print("-- REFRESH --")
+    print(utentes)
     atualjanela = "menu"
     event, values = window.read()
     print("Evento: {}, Valores: {}".format(event, values))
@@ -46,6 +74,7 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
         running = False
 
     if event == "F2:113": # admin tools - autologin (REMOVE!)
+        window["Entrar"].update(visible=False)
         window["Settings"].update(visible=False)
         window["Sair"].update(visible=False)
         window["Interface"].update(visible=True)
@@ -68,13 +97,13 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 username = values["UsernameValue"].strip()
                 password = values["PasswordValue"].strip()
                 utilizador = username + " | " + password
-                print(utilizador)
                 if utilizador not in login:
                     sg.Popup("Utilizador ou password incorretos!", title="ERRO!", icon=logo)
                 elif autologin == True or utilizador in login:
                     sg.Popup("Logou com sucesso!\nAo fechar esta janela será redirecionado para o menu.", title="Login", icon=logo)
                     w_entrar.close()
                     # event = "Interface"
+                    window["Entrar"].update(visible=False)
                     window["Settings"].update(visible=False)
                     window["Sair"].update(visible=False)
                     window["Interface"].update(visible=True)
@@ -127,8 +156,9 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                             nomeutente = str(nomeutente)
                             if len(nomeutente) != 0 and cpulseira in pulseiras:
                                 valorestable.append([nutente, nomeutente, cpulseira, caso])
-                                print(valorestable)
-                                print(utentesdict)
+                                utentes.append(nutente)
+                                addutente(nutente)
+                                updatetable()
                                 atualjanela = "Interface"
                                 w_colocarutente.close()
                                 w_interface.close()
@@ -146,6 +176,9 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                     posutente = selecionado[0]
                     sg.Popup("O utente {} acaba de ser chamado!".format(valorestable[posutente][1]), title="Chamar utente", icon=logo, )
                     valorestable.pop(posutente)
+                    removeutente(utentes.index(posutente))
+                    utentes.pop(posutente)
+                    updatetable()
                     w_interface.close()
                     w_interface = sg.Window("Interface", interface(), icon=logo)
                 else:
@@ -168,7 +201,6 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
         w_pesquisarutente = sg.Window("Pesquisar Utente", pesquisarutente(), icon=logo, return_keyboard_events=True)
         while atualjanela == "Pesquisar Utente":
             event, values = w_pesquisarutente.read()
-    
             if event == sg.WIN_CLOSED or event == "Voltar" or event == "Escape:27" and atualjanela == "Pesquisar Utente":
                 atualjanela = "menu"
                 w_pesquisarutente.close()
@@ -199,17 +231,5 @@ flogin.close()
 
 # Salvar os dados quando o programa termina
 
-f = open("DB/table.txt", "w", encoding="UTF-8")
-print(valorestable)
-for linha in valorestable:
-    for elemento in linha: 
-        indexas = linha.index(elemento)
-        if indexas != 3:
-            f.write("{} | ".format(elemento))
-        else:
-            f.write(elemento)
-    f.write("\n")
-
-f.close()
-
+updatetable()
 

@@ -53,7 +53,7 @@ def tools():
 def pesquisarutente():
     return [
         [sg.Text("Ficha de Utente", font=("Comic 16 bold"))], 
-        [sg.Combo(key="utentes", values=utentes)],
+        [sg.Combo(values=utentes_read, key="utentes")],
         [sg.Text("Nome:"), sg.Text(key="nomeutente")],
         [sg.Text("Pulseira:"), sg.Text(key="cpulseira")],
         [sg.Text("Caso:"), sg.Text(key="caso")],
