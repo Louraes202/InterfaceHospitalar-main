@@ -63,5 +63,5 @@ def pesquisarutente():
 def settings():
     return [
         [sg.Text("Settings", font=("Comic 16 bold"))],
-        [sg.Text("Tema"), sg.Combo(sg.theme_list()), sg.Button("Mudar")]
+        [sg.Text("Tema"), sg.Combo(sg.theme_list(), key="Tema"), sg.Button("Mudar")]
     ]

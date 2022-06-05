@@ -176,7 +176,7 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                     posutente = selecionado[0]
                     sg.Popup("O utente {} acaba de ser chamado!".format(valorestable[posutente][1]), title="Chamar utente", icon=logo, )
                     valorestable.pop(posutente)
-                    removeutente(utentes.index(posutente))
+                    removeutente(utentes[posutente])
                     utentes.pop(posutente)
                     updatetable()
                     w_interface.close()
@@ -223,6 +223,10 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
             if event == sg.WIN_CLOSED or event == "Voltar" or event == "Escape:27" and atualjanela == "Settings":
                 atualjanela = "menu"
                 w_settings.close()
+
+            if event == "Mudar":
+                sg.Popup("Esta funcionalidade está suspensa de momento para prevenir erros. [05/06]", title="Erro Temporário", icon=logo)
+                
             
             
             
