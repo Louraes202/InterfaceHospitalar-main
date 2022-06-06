@@ -17,16 +17,16 @@ def updatetable():
     f.close()
 
 def addutente(utente):
-    utente = str(utente)
     futensa = open("DB/utentes.txt", "a", encoding="UTF-8")
-    futensa.write(utente)
+    futensa.write(str(utente))
     futensa.close()
     utentes_read.append(utente)
 
 def removeutente(utente):
+    utentes.remove(utente)
     futentesa = open("DB/utentes.txt", "w", encoding="UTF-8")
     for e in utentes:
-        futentesa.write(e)
+        futentesa.write(str(e))
         futentesa.write("\n")
     futentesa.close()
     utentes_read.remove(utente)
@@ -177,7 +177,6 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                     sg.Popup("O utente {} acaba de ser chamado!".format(valorestable[posutente][1]), title="Chamar utente", icon=logo, )
                     valorestable.pop(posutente)
                     removeutente(utentes[posutente])
-                    utentes.pop(posutente)
                     updatetable()
                     w_interface.close()
                     w_interface = sg.Window("Interface", interface(), icon=logo)
