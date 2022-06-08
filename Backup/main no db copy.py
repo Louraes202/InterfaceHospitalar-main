@@ -2,7 +2,7 @@
 import os
 import PySimpleGUI as sg
 ## ---- Funções ----
-from specialfunctions import *
+from Backup.specialfunctions import *
 # basicamente ver onde o código é repetido e transformar as repetições em funcções
 ## ---- Layouts e assets ----
 from layouts import *

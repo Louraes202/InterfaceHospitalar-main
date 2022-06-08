@@ -1,2 +1,3 @@
 21 | Martim | Amarelo | Braço Fraturado
 22 | António | Verde | Febre
+23 | Márcio | Amarela | Hipotermia

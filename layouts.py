@@ -24,7 +24,8 @@ def entrar(): # l_entrar
 def ajuda(): #l_ajuda
     return [
         [sg.Text("Ajuda", font=("Comic 16 bold"))],
-        [sg.Text("Como utilizar o programa?")]
+        [sg.Text("✈ Como utilizar o programa?", font=("Arial 12"))],
+        [sg.Text("Este programa consiste em uma interface preparada para atuar em hospitais, \nfazendo o registo de utentes na plataforma de chamada e o chamamento dos mesmos.")]
     ]
 
 # valorestable = [] # utilizar uma database
@@ -47,8 +48,11 @@ def colocarutente():
 
 def tools():
     return [ 
-        [sg.Text("Tools", font=("Comic 16 bold"))]
+        [sg.Text("Tools", font=("Comic 16 bold"))],
+        [sg.Text("Reset", font=("Comic 12"))],
+        [sg.Button("Reset Utentes DB"), sg.Button("Reset Utentes DB & Table DB")],
     ]
+
 
 def pesquisarutente():
     return [

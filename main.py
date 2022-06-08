@@ -78,8 +78,8 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
         window["Settings"].update(visible=False)
         window["Sair"].update(visible=False)
         window["Interface"].update(visible=True)
-        window["Tools"].update(visible=True)
         window["Pesquisar Utente"].update(visible=True)
+        window["Tools"].update(visible=True)
         window["Settings"].update(visible=True)
         window["Sair"].update(visible=True)
         islogged = True
@@ -159,6 +159,7 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                                 utentes.append(nutente)
                                 addutente(nutente)
                                 updatetable()
+                                utentesdict[nutente] = {"nomeutente": nomeutente, "cordapulseira": cpulseira, "caso": caso}
                                 atualjanela = "Interface"
                                 w_colocarutente.close()
                                 w_interface.close()
@@ -174,8 +175,9 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 selecionado = values[0]
                 if len(selecionado) != 0:
                     posutente = selecionado[0]
-                    sg.Popup("O utente {} acaba de ser chamado!".format(valorestable[posutente][1]), title="Chamar utente", icon=logo, )
+                    sg.Popup("O utente {} acaba de ser chamado!".format(valorestable[posutente][1]), title="Chamar utente", icon=logo)
                     valorestable.pop(posutente)
+                    utentesdict.pop(utentes[posutente])
                     removeutente(utentes[posutente])
                     updatetable()
                     w_interface.close()
@@ -193,6 +195,24 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
             if event == sg.WIN_CLOSED or event == "Voltar" or event == "Escape:27" and atualjanela == "Tools":
                 atualjanela = "menu"
                 w_tools.close()
+            
+            if event == "Reset Utentes DB":
+                futentesw = open("DB/utentes.txt", "w", encoding="UTF-8")
+                futentesw.write(" ")
+                futentesw.close()
+                utentesdict.clear()
+                utentes.clear()
+                sg.Popup("Sucesso!", "A base de dados dos utentes foi restaurada! \nClique em OK para prosseguir.", icon=logo)
+                atualjanela = "menu"
+            
+            if event == "Reset Utentes DB & Table DB":
+                ftablew = open("DB/utentes.txt", "w", encoding="UTF-8")
+                ftablew.write(" ")
+                ftablew.close()
+                utentesdict.clear()
+                utentes.clear()
+                sg.Popup("Sucesso!", "A base de dados da tabela foi restaurada! \nClique em OK para prosseguir.", icon=logo)
+                atualjanela = "menu"
             
 
     if event == "Pesquisar Utente": #_# mudar shortcut para nova janela constante (que fecha o menu)
