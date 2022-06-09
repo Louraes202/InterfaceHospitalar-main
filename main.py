@@ -104,7 +104,6 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 elif autologin == True or utilizador in login:
                     sg.Popup("Logou com sucesso!\nAo fechar esta janela será redirecionado para o menu.", title="Login", icon=logo)
                     w_entrar.close()
-                    # event = "Interface"
                     window["Entrar"].update(visible=False)
                     window["Settings"].update(visible=False)
                     window["Sair"].update(visible=False)
@@ -126,9 +125,6 @@ while running == True: # loop da verificação e atualizaçáo de valores e even
                 atualjanela = "menu"
                 w_ajuda.close()
             
-
-
-
     if event == "Interface": # quando o respetivo botão for acionado
         atualjanela = "Interface"
         w_interface = sg.Window("Interface", interface(), icon=logo, return_keyboard_events=True)
