@@ -1,9 +1,10 @@
 import os
 caminho = os.getcwd()
-print(caminho)
 
+# código para atualizar as databases
+
+# atualização da tabela
 f = open("DB/table.txt", "r", encoding="UTF-8")
-
 linhas = f.read().splitlines()
 print(linhas)
 linhas2 = []
@@ -20,6 +21,7 @@ for linha in linhas2:
 valorestable = linhas2
 f.close()
 
+# atualização dos utentes
 futentes = open("DB/utentes.txt", "r", encoding="UTF-8")
 utentes_read = futentes.read().splitlines()
 futentes.close()
